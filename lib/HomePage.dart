@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:brickapp/Coverscreen.dart';
+import 'package:brickapp/Player.dart';
 import 'package:brickapp/ball.dart';
 import 'package:flutter/material.dart';
 
@@ -15,6 +16,10 @@ class _HomePageState extends State<HomePage> {
   //ball variables
   double ballX = 0;
   double ballY = 0;
+
+  //player variables
+  double playerX = 0;
+  double playerwidth = 0.3;
 
   //game settings
   bool hasGameStarted = false;
@@ -50,6 +55,10 @@ class _HomePageState extends State<HomePage> {
               ),
 
               //player
+              MyPlayer(
+                player: playerX,
+                playerwidth: playerwidth,
+              ),
             ],
           ),
         ),
