@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:brickapp/Coverscreen.dart';
+import 'package:brickapp/ball.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -43,16 +44,9 @@ class _HomePageState extends State<HomePage> {
               ),
 
               //ball
-              Container(
-                alignment: Alignment(ballX, ballY),
-                child: Container(
-                  height: 15.0,
-                  width: 15.0,
-                  decoration: const BoxDecoration(
-                    color: Colors.teal,
-                    shape: BoxShape.circle,
-                  ),
-                ),
+              MyBall(
+                ballX: ballX,
+                ballY: ballY,
               ),
             ],
           ),
