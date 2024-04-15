@@ -32,15 +32,6 @@ class _HomePageState extends State<HomePage> {
         body: Center(
           child: Stack(
             children: [
-              //tap to play'
-              Container(
-                alignment: Alignment(0, -0.2),
-                child: Text(
-                  'Tap to play',
-                  style: TextStyle(color: Colors.teal[500]),
-                ),
-              ),
-
               //ball
               Container(
                 alignment: Alignment(ballX, ballY),
