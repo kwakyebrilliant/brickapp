@@ -22,7 +22,7 @@ class _HomePageState extends State<HomePage> {
   //startGame method
   void startGame() {
     hasGameStarted = true;
-    Timer.periodic(Duration(milliseconds: 10), (timer) {
+    Timer.periodic(const Duration(milliseconds: 10), (timer) {
       setState(() {
         ballY -= 0.1;
       });
