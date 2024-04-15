@@ -30,7 +30,7 @@ class _HomePageState extends State<HomePage> {
     hasGameStarted = true;
     Timer.periodic(const Duration(milliseconds: 10), (timer) {
       setState(() {
-        ballY -= 0.1;
+        ballY += 0.001;
       });
     });
   }
@@ -90,6 +90,8 @@ class _HomePageState extends State<HomePage> {
                   player: playerX,
                   playerwidth: playerwidth,
                 ),
+
+                //where is playerx exactly?
               ],
             ),
           ),
