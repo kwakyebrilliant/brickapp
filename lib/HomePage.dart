@@ -8,6 +8,10 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  //ball variables
+  double ballX = 0;
+  double ballY = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
