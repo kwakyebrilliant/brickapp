@@ -92,6 +92,9 @@ class _HomePageState extends State<HomePage> {
                 ),
 
                 //where is playerx exactly?
+                Container(
+                  alignment: Alignment(playerX, 0.9),
+                ),
               ],
             ),
           ),
