@@ -29,9 +29,12 @@ class _HomePageState extends State<HomePage> {
   void startGame() {
     hasGameStarted = true;
     Timer.periodic(const Duration(milliseconds: 10), (timer) {
+      //move ball
       setState(() {
         ballY += 0.001;
       });
+
+      //update direction
     });
   }
 
@@ -49,7 +52,7 @@ class _HomePageState extends State<HomePage> {
   void moveRight() {
     setState(() {
       //move right if moving right doesn't move player off the screen
-      if (!(playerX + 0.2 >= 1)) {
+      if (!(playerX + 2 * playerwidth >= 1)) {
         playerX += 0.2;
       }
     });
@@ -89,16 +92,6 @@ class _HomePageState extends State<HomePage> {
                 MyPlayer(
                   playerX: playerX,
                   playerwidth: playerwidth,
-                ),
-
-                //where is playerx exactly?
-                Container(
-                  alignment: Alignment(playerX, 0.9),
-                  child: Container(
-                    color: Colors.black,
-                    width: 4.0,
-                    height: 15.0,
-                  ),
                 ),
               ],
             ),
