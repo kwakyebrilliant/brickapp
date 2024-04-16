@@ -87,7 +87,7 @@ class _HomePageState extends State<HomePage> {
 
                 //player
                 MyPlayer(
-                  player: playerX,
+                  playerX: playerX,
                   playerwidth: playerwidth,
                 ),
 
