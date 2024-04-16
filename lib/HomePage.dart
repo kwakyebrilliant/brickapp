@@ -32,24 +32,32 @@ class _HomePageState extends State<HomePage> {
   void startGame() {
     hasGameStarted = true;
     Timer.periodic(const Duration(milliseconds: 10), (timer) {
+      //update direction
+      updateDirection();
+
       //move ball
       moveBall();
-
-      setState(() {
-        ballY += 0.001;
-      });
-
-      //update direction
     });
   }
 
-  //move ball function
+  //move ball the ball function
   void moveBall() {
     setState(() {
       if (ballDirection == direction.DOWN) {
         ballY += 0.01;
       } else if (ballDirection == direction.UP) {
         ballY -= 0.01;
+      }
+    });
+  }
+
+  //update directon of the ball function
+  void updateDirection() {
+    setState(() {
+      if (ballY >= 0.9) {
+        ballDirection = direction.UP;
+      } else if (ballY <= -0.9) {
+        ballDirection = direction.UP;
       }
     });
   }
