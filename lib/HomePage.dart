@@ -115,7 +115,7 @@ class _HomePageState extends State<HomePage> {
                 //player
                 MyPlayer(
                   playerX: playerX,
-                  playerwidth: playerwidth,
+                  playerWidth: playerwidth,
                 ),
               ],
             ),
