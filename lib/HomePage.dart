@@ -27,6 +27,7 @@ class _HomePageState extends State<HomePage> {
 
   //game settings
   bool hasGameStarted = false;
+  bool isGameOver = false;
 
   //startGame method
   void startGame() {
@@ -37,7 +38,20 @@ class _HomePageState extends State<HomePage> {
 
       //move ball
       moveBall();
+
+      //check if player is dead
+      if (isPlayerDead()) {
+        timer.cancel();
+        isGameOver = true;
+      }
     });
+  }
+
+  bool isPlayerDead() {
+    if (ballY >= 1) {
+      return true;
+    }
+    return false;
   }
 
   //move ball the ball function
