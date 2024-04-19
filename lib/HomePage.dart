@@ -23,7 +23,7 @@ class _HomePageState extends State<HomePage> {
 
   //player variables
   double playerX = -0.2;
-  double playerwidth = 0.4;
+  double playerWidth = 0.4;
 
   //game settings
   bool hasGameStarted = false;
@@ -54,7 +54,7 @@ class _HomePageState extends State<HomePage> {
   //update directon of the ball function
   void updateDirection() {
     setState(() {
-      if (ballY >= 0.9 && ballX >= playerX && ballX <= playerX + playerwidth) {
+      if (ballY >= 0.9 && ballX >= playerX && ballX <= playerX + playerWidth) {
         ballDirection = direction.UP;
       } else if (ballY <= -0.9) {
         ballDirection = direction.DOWN;
@@ -76,7 +76,7 @@ class _HomePageState extends State<HomePage> {
   void moveRight() {
     setState(() {
       //move right if moving right doesn't move player off the screen
-      if (!(playerX + 2 * playerwidth >= 1)) {
+      if (!(playerX + 2 * playerWidth >= 1)) {
         playerX += 0.2;
       }
     });
@@ -115,7 +115,7 @@ class _HomePageState extends State<HomePage> {
                 //player
                 MyPlayer(
                   playerX: playerX,
-                  playerWidth: playerwidth,
+                  playerWidth: playerWidth,
                 ),
               ],
             ),
