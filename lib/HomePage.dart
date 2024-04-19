@@ -22,8 +22,8 @@ class _HomePageState extends State<HomePage> {
   var ballDirection = direction.DOWN;
 
   //player variables
-  double playerX = 0;
-  double playerwidth = 0.3;
+  double playerX = -0.2;
+  double playerwidth = 0.4;
 
   //game settings
   bool hasGameStarted = false;
@@ -54,10 +54,10 @@ class _HomePageState extends State<HomePage> {
   //update directon of the ball function
   void updateDirection() {
     setState(() {
-      if (ballY >= 0.9) {
+      if (ballY >= 0.9 && ballX >= playerX && ballX <= playerX + playerwidth) {
         ballDirection = direction.UP;
       } else if (ballY <= -0.9) {
-        ballDirection = direction.UP;
+        ballDirection = direction.DOWN;
       }
     });
   }
