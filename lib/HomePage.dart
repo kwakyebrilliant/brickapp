@@ -66,7 +66,7 @@ class _HomePageState extends State<HomePage> {
   void moveLeft() {
     setState(() {
       //move left if moving left doesn't move player off the screen
-      if (!(playerX - 0.2 <= -1)) {
+      if (!(playerX - 0.2 < -1)) {
         playerX -= 0.2;
       }
     });
@@ -76,7 +76,7 @@ class _HomePageState extends State<HomePage> {
   void moveRight() {
     setState(() {
       //move right if moving right doesn't move player off the screen
-      if (!(playerX + 2 * playerWidth >= 1)) {
+      if (!(playerX + 1 * playerWidth >= 1)) {
         playerX += 0.2;
       }
     });
@@ -84,13 +84,16 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return KeyboardListener(
+    // ignore: deprecated_member_use
+    return RawKeyboardListener(
       focusNode: FocusNode(),
       autofocus: true,
-      onKeyEvent: (event) {
-        if (event.logicalKey == LogicalKeyboardKey.arrowLeft) {
+      onKey: (event) {
+        // ignore: deprecated_member_use
+        if (event.isKeyPressed(LogicalKeyboardKey.arrowLeft)) {
           moveLeft();
-        } else if (event.logicalKey == LogicalKeyboardKey.arrowRight) {
+          // ignore: deprecated_member_use
+        } else if (event.isKeyPressed(LogicalKeyboardKey.arrowRight)) {
           moveRight();
         }
       },
