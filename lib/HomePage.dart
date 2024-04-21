@@ -39,7 +39,7 @@ class _HomePageState extends State<HomePage> {
       //move ball
       moveBall();
 
-      //check if player is dead
+      //check if player is deads
       if (isPlayerDead()) {
         timer.cancel();
         isGameOver = true;
