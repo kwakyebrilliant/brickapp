@@ -26,6 +26,12 @@ class _HomePageState extends State<HomePage> {
   double playerX = -0.2;
   double playerWidth = 0.4;
 
+  //brick variables
+  double brickX = 0;
+  double brickY = -0.9;
+  double brickWidth = 0.4;
+  double brickHeight = 0.1;
+
   //game settings
   bool hasGameStarted = false;
   bool isGameOver = false;
