@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:brickapp/Brick.dart';
 import 'package:brickapp/Coverscreen.dart';
 import 'package:brickapp/GameOverScreen.dart';
 import 'package:brickapp/Player.dart';
@@ -148,6 +149,12 @@ class _HomePageState extends State<HomePage> {
                 ),
 
                 //bricks
+                MyBrick(
+                  brickX: brickX,
+                  brickY: brickY,
+                  brickHeight: brickHeight,
+                  brickWidth: brickWidth,
+                ),
               ],
             ),
           ),
