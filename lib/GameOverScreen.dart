@@ -18,9 +18,9 @@ class Gameoverscreen extends StatelessWidget {
             children: [
               Container(
                 alignment: const Alignment(0, -0.3),
-                child: const Text(
-                  'G A M E   O V E R',
-                  style: TextStyle(color: Colors.teal),
+                child: Text(
+                  'GAME OVER',
+                  style: gameFont,
                 ),
               ),
               Container(
