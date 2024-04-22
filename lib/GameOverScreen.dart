@@ -9,7 +9,7 @@ class Gameoverscreen extends StatelessWidget {
     return isGameOver
         ? Container(
             alignment: const Alignment(0, -0.3),
-            child: const Text('G A M E O V E R'),
+            child: const Text('G A M E   O V E R'),
           )
         : Container();
   }
