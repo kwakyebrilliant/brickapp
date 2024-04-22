@@ -55,7 +55,18 @@ class _HomePageState extends State<HomePage> {
       }
 
       //check if brick is hit
+      checkForBrokenBricks();
     });
+  }
+
+  void checkForBrokenBricks() {
+    //check for when ball hits bottom of the brick
+    if (ballX >= brickX &&
+        ballX <= brickX + brickWidth &&
+        ballY <= brickY + brickHeight &&
+        brickBroken == false) {
+      brickBroken = true;
+    }
   }
 
   //is player dead
@@ -157,6 +168,7 @@ class _HomePageState extends State<HomePage> {
                   brickY: brickY,
                   brickHeight: brickHeight,
                   brickWidth: brickWidth,
+                  brickBroken: brickBroken,
                 ),
               ],
             ),
