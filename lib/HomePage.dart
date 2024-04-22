@@ -30,7 +30,7 @@ class _HomePageState extends State<HomePage> {
   double brickX = 0;
   double brickY = -0.9;
   double brickWidth = 0.4;
-  double brickHeight = 0.1;
+  double brickHeight = 0.05;
 
   //game settings
   bool hasGameStarted = false;
@@ -151,10 +151,11 @@ class _HomePageState extends State<HomePage> {
                 Container(
                   alignment: const Alignment(0, -0.9),
                   child: ClipRRect(
-                    borderRadius: BorderRadius.circular(10.0),
+                    borderRadius: BorderRadius.circular(5.0),
                     child: Container(
-                      height: 20.0,
-                      width: 50.0,
+                      height:
+                          MediaQuery.of(context).size.height * brickHeight / 2,
+                      width: MediaQuery.of(context).size.width * brickWidth / 2,
                       color: Colors.teal,
                     ),
                   ),
