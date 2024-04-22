@@ -48,7 +48,9 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  //is player dead
   bool isPlayerDead() {
+    // player dies if it ball reaches the bottom of the screen
     if (ballY >= 1) {
       return true;
     }
@@ -138,6 +140,8 @@ class _HomePageState extends State<HomePage> {
                   playerX: playerX,
                   playerWidth: playerWidth,
                 ),
+
+                //bricks
               ],
             ),
           ),
