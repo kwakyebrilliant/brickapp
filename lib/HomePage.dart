@@ -21,7 +21,7 @@ class _HomePageState extends State<HomePage> {
   //ball variables
   double ballX = 0;
   double ballY = 0;
-  double ballXincrements = 0.01;
+  double ballXincrements = 0.02;
   double ballYincrements = 0.01;
   var ballYDirection = direction.DOWN;
   var ballXDirection = direction.LEFT;
@@ -97,11 +97,11 @@ class _HomePageState extends State<HomePage> {
 
           switch (min) {
             case 'left':
-              ballYDirection = direction.LEFT;
+              ballXDirection = direction.LEFT;
 
               break;
             case 'right':
-              ballYDirection = direction.RIGHT;
+              ballXDirection = direction.RIGHT;
 
               break;
             case 'up':
