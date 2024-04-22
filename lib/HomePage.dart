@@ -36,7 +36,7 @@ class _HomePageState extends State<HomePage> {
   static double brickWidth = 0.4;
   static double brickHeight = 0.05;
   static double brickGap = 0.2;
-  static int numberOfBricksInRow = 2;
+  static int numberOfBricksInRow = 3;
   static double wallGap = 0.5 *
       (2 -
           numberOfBricksInRow * brickWidth -
@@ -45,8 +45,9 @@ class _HomePageState extends State<HomePage> {
 
   List MyBricks = [
     //[x, y, broken = true/false]
-    [firstBrickX, firstBrickY, false],
-    [firstBrickX + brickWidth + brickGap, firstBrickY, false]
+    [firstBrickX + 0 * brickWidth + brickGap, firstBrickY, false],
+    [firstBrickX + 1 * brickWidth + brickGap, firstBrickY, false],
+    [firstBrickX + 2 * brickWidth + brickGap, firstBrickY, false]
   ];
 
   //game settings
@@ -212,6 +213,13 @@ class _HomePageState extends State<HomePage> {
                 MyBrick(
                   brickX: MyBricks[1][0],
                   brickY: MyBricks[1][1],
+                  brickHeight: brickHeight,
+                  brickWidth: brickWidth,
+                  brickBroken: brickBroken,
+                ),
+                MyBrick(
+                  brickX: MyBricks[2][0],
+                  brickY: MyBricks[2][1],
                   brickHeight: brickHeight,
                   brickWidth: brickWidth,
                   brickBroken: brickBroken,
