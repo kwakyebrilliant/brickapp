@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:brickapp/Coverscreen.dart';
+import 'package:brickapp/GameOverScreen.dart';
 import 'package:brickapp/Player.dart';
 import 'package:brickapp/ball.dart';
 import 'package:flutter/material.dart';
@@ -122,6 +123,9 @@ class _HomePageState extends State<HomePage> {
                 CoverScreen(
                   hasGameStarted: hasGameStarted,
                 ),
+
+                //game over screen
+                Gameoverscreen(isGameOver: isGameOver),
 
                 //ball
                 MyBall(
