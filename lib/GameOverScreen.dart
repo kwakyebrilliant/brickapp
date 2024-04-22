@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Gameoverscreen extends StatelessWidget {
   const Gameoverscreen({super.key, required this.isGameOver, this.function});
   final bool isGameOver;
   final function;
+
+  //font
+  static var gameFont = GoogleFonts.pressStart2p(
+      textStyle: const TextStyle(
+          color: Colors.teal, letterSpacing: 0, fontSize: 28.0));
 
   @override
   Widget build(BuildContext context) {
