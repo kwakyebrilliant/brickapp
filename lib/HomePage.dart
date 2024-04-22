@@ -32,6 +32,7 @@ class _HomePageState extends State<HomePage> {
   double brickY = -0.9;
   double brickWidth = 0.4;
   double brickHeight = 0.05;
+  bool brickBroken = false;
 
   //game settings
   bool hasGameStarted = false;
@@ -52,6 +53,8 @@ class _HomePageState extends State<HomePage> {
         timer.cancel();
         isGameOver = true;
       }
+
+      //check if brick is hit
     });
   }
 
