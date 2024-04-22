@@ -41,7 +41,6 @@ class _HomePageState extends State<HomePage> {
       (2 -
           numberOfBricksInRow * brickWidth -
           (numberOfBricksInRow - 1) * brickGap);
-  bool brickBroken = false;
 
   List MyBricks = [
     //[x, y, broken = true/false]
@@ -76,15 +75,31 @@ class _HomePageState extends State<HomePage> {
   }
 
   void checkForBrokenBricks() {
-    //check for when ball hits bottom of the brick
-    if (ballX >= MyBricks[0][0] &&
-        ballX <= MyBricks[0][0] + brickWidth &&
-        ballY <= MyBricks[0][1] + brickHeight &&
-        brickBroken == false) {
-      setState(() {
-        brickBroken = true;
-        ballYDirection = direction.DOWN;
-      });
+    //check for when ball is inside the brick
+    for (int i = 0; i < MyBricks.length; i++) {
+      if (ballX >= MyBricks[i][0] &&
+          ballX <= MyBricks[i][0] + brickWidth &&
+          ballY <= MyBricks[i][1] + brickHeight &&
+          MyBricks[i][2] == false) {
+        setState(() {
+          MyBricks[i][2] = true;
+
+          //since brick is broken, update the direction of the
+          //ball based on which side of the brick it hit
+
+          //if ball hit bottom side of the brick then
+          ballYDirection = direction.DOWN;
+
+          //if ball hit top side of the brick then
+          ballYDirection = direction.UP;
+
+          //if ball hit left side of the brick then
+          ballYDirection = direction.LEFT;
+
+          //if ball hit right side of the brick then
+          ballYDirection = direction.RIGHT;
+        });
+      }
     }
   }
 
@@ -206,23 +221,23 @@ class _HomePageState extends State<HomePage> {
                 MyBrick(
                   brickX: MyBricks[0][0],
                   brickY: MyBricks[0][1],
+                  brickBroken: MyBricks[0][2],
                   brickHeight: brickHeight,
                   brickWidth: brickWidth,
-                  brickBroken: brickBroken,
                 ),
                 MyBrick(
                   brickX: MyBricks[1][0],
                   brickY: MyBricks[1][1],
+                  brickBroken: MyBricks[1][2],
                   brickHeight: brickHeight,
                   brickWidth: brickWidth,
-                  brickBroken: brickBroken,
                 ),
                 MyBrick(
                   brickX: MyBricks[2][0],
                   brickY: MyBricks[2][1],
+                  brickBroken: MyBricks[2][2],
                   brickHeight: brickHeight,
                   brickWidth: brickWidth,
-                  brickBroken: brickBroken,
                 ),
               ],
             ),
