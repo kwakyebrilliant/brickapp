@@ -31,11 +31,16 @@ class _HomePageState extends State<HomePage> {
   double playerWidth = 0.4;
 
   //brick variables
-  static double firstBrickX = -0.5;
+  static double firstBrickX = -1 + wallGap;
   static double firstBrickY = -0.9;
   static double brickWidth = 0.4;
   static double brickHeight = 0.05;
   static double brickGap = 0.2;
+  static int numberOfBricksInRow = 2;
+  static double wallGap = 0.5 *
+      (2 -
+          numberOfBricksInRow * brickWidth -
+          (numberOfBricksInRow - 1) * brickGap);
   bool brickBroken = false;
 
   List MyBricks = [
