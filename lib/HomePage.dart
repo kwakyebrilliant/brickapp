@@ -87,20 +87,72 @@ class _HomePageState extends State<HomePage> {
           //since brick is broken, update the direction of the
           //ball based on which side of the brick it hit
 
-          //if ball hit bottom side of the brick then
-          ballYDirection = direction.DOWN;
+          double leftSideDist = (MyBricks[i][0] - ballX).abs();
+          double rightSideDist = (MyBricks[i][0] + brickWidth - ballX).abs();
+          double topSideDist = (MyBricks[i][1] - ballY).abs();
+          double bottomSideDist = (MyBricks[i][1] + brickHeight - ballY).abs();
 
-          //if ball hit top side of the brick then
-          ballYDirection = direction.UP;
+          String min =
+              findMin(leftSideDist, rightSideDist, topSideDist, bottomSideDist);
 
-          //if ball hit left side of the brick then
-          ballYDirection = direction.LEFT;
+          switch (min) {
+            case 'left':
+              ballYDirection = direction.LEFT;
 
-          //if ball hit right side of the brick then
-          ballYDirection = direction.RIGHT;
+              break;
+            case 'right':
+              ballYDirection = direction.RIGHT;
+
+              break;
+            case 'up':
+              ballYDirection = direction.UP;
+
+              break;
+            case 'down':
+              ballYDirection = direction.DOWN;
+
+              break;
+            default:
+          }
+
+          // //if ball hit bottom side of the brick then
+          // ballYDirection = direction.DOWN;
+
+          // //if ball hit top side of the brick then
+          // ballYDirection = direction.UP;
+
+          // //if ball hit left side of the brick then
+          // ballYDirection = direction.LEFT;
+
+          // //if ball hit right side of the brick then
+          // ballYDirection = direction.RIGHT;
         });
       }
     }
+  }
+
+  //return the smallest sides
+  String findMin(double a, double b, double c, double d) {
+    List<double> myList = [a, b, c, d];
+
+    double currentMin = a;
+    for (int i = 0; i < myList.length; i++) {
+      if (myList[i] < currentMin) {
+        currentMin = myList[1];
+      }
+    }
+
+    if ((currentMin - a).abs() < 0.01) {
+      return 'left';
+    } else if ((currentMin - b).abs() < 0.01) {
+      return 'right';
+    } else if ((currentMin - c).abs() < 0.01) {
+      return 'top';
+    } else if ((currentMin - d).abs() < 0.01) {
+      return 'bottom';
+    }
+
+    return '';
   }
 
   //is player dead
