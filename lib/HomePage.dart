@@ -148,18 +148,6 @@ class _HomePageState extends State<HomePage> {
                 ),
 
                 //bricks
-                Container(
-                  alignment: const Alignment(0, -0.9),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(5.0),
-                    child: Container(
-                      height:
-                          MediaQuery.of(context).size.height * brickHeight / 2,
-                      width: MediaQuery.of(context).size.width * brickWidth / 2,
-                      color: Colors.teal,
-                    ),
-                  ),
-                ),
               ],
             ),
           ),
