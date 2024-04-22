@@ -65,7 +65,9 @@ class _HomePageState extends State<HomePage> {
         ballX <= brickX + brickWidth &&
         ballY <= brickY + brickHeight &&
         brickBroken == false) {
-      brickBroken = true;
+      setState(() {
+        brickBroken = true;
+      });
     }
   }
 
