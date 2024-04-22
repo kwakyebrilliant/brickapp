@@ -15,13 +15,16 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-enum direction { UP, DOWN }
+enum direction { UP, DOWN, LEFT, RIGHT }
 
 class _HomePageState extends State<HomePage> {
   //ball variables
   double ballX = 0;
   double ballY = 0;
-  var ballDirection = direction.DOWN;
+  double ballXincrements = 0.01;
+  double ballYincrements = 0.01;
+  var ballYDirection = direction.DOWN;
+  var ballXDirection = direction.LEFT;
 
   //player variables
   double playerX = -0.2;
@@ -67,6 +70,7 @@ class _HomePageState extends State<HomePage> {
         brickBroken == false) {
       setState(() {
         brickBroken = true;
+        ballYDirection = direction.DOWN;
       });
     }
   }
@@ -83,10 +87,18 @@ class _HomePageState extends State<HomePage> {
   //move ball the ball function
   void moveBall() {
     setState(() {
-      if (ballDirection == direction.DOWN) {
-        ballY += 0.01;
-      } else if (ballDirection == direction.UP) {
-        ballY -= 0.01;
+      //move horizontally
+      if (ballXDirection == direction.LEFT) {
+        ballX -= ballXincrements;
+      } else if (ballXDirection == direction.RIGHT) {
+        ballX += ballXincrements;
+      }
+
+      //move vertically
+      if (ballYDirection == direction.DOWN) {
+        ballY += ballYincrements;
+      } else if (ballYDirection == direction.UP) {
+        ballY -= ballYincrements;
       }
     });
   }
@@ -94,10 +106,23 @@ class _HomePageState extends State<HomePage> {
   //update directon of the ball function
   void updateDirection() {
     setState(() {
+      //ball goes up when it hits player
       if (ballY >= 0.9 && ballX >= playerX && ballX <= playerX + playerWidth) {
-        ballDirection = direction.UP;
-      } else if (ballY <= -0.9) {
-        ballDirection = direction.DOWN;
+        ballYDirection = direction.UP;
+
+        //ball goes down when it hits top fo screen
+      } else if (ballY <= -1) {
+        ballYDirection = direction.DOWN;
+      }
+
+      //ball goes left when it hits right wall
+      if (ballX >= 1) {
+        ballXDirection = direction.LEFT;
+      }
+
+      //ball goes right when it hits left wall
+      else if (ballX <= -1) {
+        ballXDirection = direction.RIGHT;
       }
     });
   }
