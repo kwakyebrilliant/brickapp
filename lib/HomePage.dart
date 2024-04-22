@@ -31,11 +31,18 @@ class _HomePageState extends State<HomePage> {
   double playerWidth = 0.4;
 
   //brick variables
-  double brickX = 0;
-  double brickY = -0.9;
-  double brickWidth = 0.4;
-  double brickHeight = 0.05;
+  static double firstBrickX = -0.5;
+  static double firstBrickY = -0.9;
+  static double brickWidth = 0.4;
+  static double brickHeight = 0.05;
+  static double brickGap = 0.2;
   bool brickBroken = false;
+
+  List MyBricks = [
+    //[x, y, broken = true/false]
+    [firstBrickX, firstBrickY, false],
+    [firstBrickX + brickWidth + brickGap, firstBrickY, false]
+  ];
 
   //game settings
   bool hasGameStarted = false;
@@ -64,9 +71,9 @@ class _HomePageState extends State<HomePage> {
 
   void checkForBrokenBricks() {
     //check for when ball hits bottom of the brick
-    if (ballX >= brickX &&
-        ballX <= brickX + brickWidth &&
-        ballY <= brickY + brickHeight &&
+    if (ballX >= MyBricks[0][0] &&
+        ballX <= MyBricks[0][0] + brickWidth &&
+        ballY <= MyBricks[0][1] + brickHeight &&
         brickBroken == false) {
       setState(() {
         brickBroken = true;
@@ -191,8 +198,15 @@ class _HomePageState extends State<HomePage> {
 
                 //bricks
                 MyBrick(
-                  brickX: brickX,
-                  brickY: brickY,
+                  brickX: MyBricks[0][0],
+                  brickY: MyBricks[0][1],
+                  brickHeight: brickHeight,
+                  brickWidth: brickWidth,
+                  brickBroken: brickBroken,
+                ),
+                MyBrick(
+                  brickX: MyBricks[1][0],
+                  brickY: MyBricks[1][1],
                   brickHeight: brickHeight,
                   brickWidth: brickWidth,
                   brickBroken: brickBroken,
