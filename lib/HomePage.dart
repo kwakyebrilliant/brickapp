@@ -142,6 +142,17 @@ class _HomePageState extends State<HomePage> {
                 ),
 
                 //bricks
+                Container(
+                  alignment: const Alignment(0, -0.9),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(10.0),
+                    child: Container(
+                      height: 20.0,
+                      width: 50.0,
+                      color: Colors.teal,
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
