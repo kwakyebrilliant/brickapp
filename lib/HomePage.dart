@@ -261,6 +261,8 @@ class _HomePageState extends State<HomePage> {
                 MyBall(
                   ballX: ballX,
                   ballY: ballY,
+                  hasGameStarted: hasGameStarted,
+                  isGameOver: isGameOver,
                 ),
 
                 //player
