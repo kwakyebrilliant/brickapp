@@ -269,6 +269,7 @@ class _HomePageState extends State<HomePage> {
                 //tap to play
                 CoverScreen(
                   hasGameStarted: hasGameStarted,
+                  isGameOver: isGameOver,
                 ),
 
                 //game over screen
