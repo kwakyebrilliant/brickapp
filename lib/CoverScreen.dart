@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CoverScreen extends StatelessWidget {
-  const CoverScreen({super.key, required this.hasGameStarted});
+  const CoverScreen(
+      {super.key, required this.hasGameStarted, required this.isGameOver});
 
   final bool hasGameStarted;
+  final bool isGameOver;
 
   //font
   static var gameFont = GoogleFonts.pressStart2p(
@@ -17,7 +19,7 @@ class CoverScreen extends StatelessWidget {
         ? Container(
             alignment: const Alignment(0, -0.5),
             child: Text(
-              'BRICKAPP',
+              isGameOver ? '' : 'BRICKAPP',
               style: gameFont.copyWith(color: Colors.teal[200]),
             ),
           )
