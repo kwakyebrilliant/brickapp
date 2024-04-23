@@ -272,7 +272,10 @@ class _HomePageState extends State<HomePage> {
                 ),
 
                 //game over screen
-                Gameoverscreen(isGameOver: isGameOver),
+                Gameoverscreen(
+                  isGameOver: isGameOver,
+                  function: resetGame,
+                ),
 
                 //ball
                 MyBall(
