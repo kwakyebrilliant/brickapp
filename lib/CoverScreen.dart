@@ -14,7 +14,13 @@ class CoverScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return hasGameStarted
-        ? Container()
+        ? Container(
+            alignment: const Alignment(0, -0.5),
+            child: Text(
+              'BRICKAPP',
+              style: gameFont.copyWith(color: Colors.teal[200]),
+            ),
+          )
         : Stack(
             children: [
               Container(
