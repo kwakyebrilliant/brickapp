@@ -227,6 +227,23 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  //reset game to initial values when user hits play again
+  void resetGame() {
+    setState(() {
+      playerX = -0.2;
+      ballX = 0;
+      ballY = 0;
+      isGameOver = false;
+      hasGameStarted = false;
+      List MyBricks = [
+        //[x, y, broken = true/false]
+        [firstBrickX + 0 * brickWidth + brickGap, firstBrickY, false],
+        [firstBrickX + 1 * brickWidth + brickGap, firstBrickY, false],
+        [firstBrickX + 2 * brickWidth + brickGap, firstBrickY, false]
+      ];
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     // ignore: deprecated_member_use
